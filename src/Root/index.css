@@ -1,0 +1,8 @@
+/* Global CSS */
+:root{
+    --ms-primary-color:#27548A;
+    --ms-danger-color:#BF3131;
+    --ms-warning-color:#FFA725;
+    --ms-white-color:#fff;
+    --ms-black-color:#000;
+}

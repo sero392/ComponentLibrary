@@ -1,0 +1,87 @@
+/* Button Component Styles */
+.ms-button{
+    cursor: pointer;
+    border-width: 0;
+}
+
+
+/* CSS */
+.button-9 {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #405cf5;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+/* Button Color */
+.ms-button[data-bg-color="primary"] {
+    --btn-bg: var(--ms-primary-color)
+}
+.ms-button[data-bg-color="danger"] {
+    --btn-bg: var(--ms-danger-color)
+}
+.ms-button[data-bg-color="warning"] {
+    --btn-bg: var(--ms-warning-color);
+}
+.ms-button[data-bg-color="white"] {
+    --btn-bg: var(--ms-white-color);
+}
+.ms-button[data-bg-color="black"] {
+    --btn-bg: var(--ms-black-color);
+}
+
+/* Text Color */
+.ms-button[data-text-color="primary"] {
+    --btn-text-color: var(--ms-primary-color);
+}
+
+.ms-button[data-text-color="white"] {
+    --btn-text-color: var(--ms-white-color);
+}
+
+
+.ms-button[data-text-color="black"] {
+    --btn-text-color: var(--ms-black-color);
+}
+
+/* Padding Styles */
+.ms-button[data-padding="small"] {
+    --btn-padding: 5px 10px;
+}
+.ms-button[data-padding="medium"] {
+    --btn-padding: 10px 20px;
+}
+.ms-button[data-padding="large"] {
+    --btn-padding: 15px 30px;
+}
+
+
+
+.ms-button-container .ms-button {
+    padding: var(--btn-padding, 10px 20px);
+    background-color: var(--btn-bg, var(--ms-primary-color));
+    color: var(--btn-text-color, var(--ms-white-color));
+    border-color: var(--btn-border-color, var(--ms-primary-color));
+}
