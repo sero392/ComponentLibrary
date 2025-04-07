@@ -59,10 +59,10 @@
 
 /* FontSize Styles */
 .ms-button[data-font-size="small"] {
-    --btn-font-size: 11px;
+    --btn-font-size: 10px;
 }
 .ms-button[data-font-size="medium"] {
-    --btn-font-size: 16px;
+    --btn-font-size: 13px;
 }
 .ms-button[data-font-size="large"] {
     --btn-font-size: 21px;
@@ -76,12 +76,14 @@
     cursor: pointer;
     border-width: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding: var(--btn-padding, 10px 20px);
     background-color: var(--btn-bg, var(--ms-primary-color));
     color: var(--btn-text-color, var(--ms-white-color));
     border-radius: var(--btn-radius, 5px);
-    font-size: var(--btn-font-size, 16px);
+    font-size: var(--btn-font-size, 13px);
 }
 
 .ms-button-container .ms-button:hover {
@@ -90,5 +92,13 @@
 
 .ms-button-container .ms-button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--btn-ring-color,rgba(0, 123, 255, 0.5));
+    box-shadow: 0 0 0 2px var(--btn-ring-color,var(--ms-ring-color));
  }
+
+
+ .ms-button-container .ms-button .ms-button-icon.prepend {
+    margin-right: 3px;
+}
+.ms-button-container .ms-button .ms-button-icon.append {
+    margin-left: 3px;
+}

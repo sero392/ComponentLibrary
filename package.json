@@ -1,11 +1,12 @@
 {
   "name": "ms-component-library",
-  "version": "1.0.4",
+  "version": "1.1.2",
   "type": "module",
   "main": "dist/ms-component-library.umd.js",
   "module": "dist/ms-component-library.es.js",
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md"
   ],
   "exports": {
     ".": {
@@ -17,6 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "release": "npm run build && npm publish --access public",
     "lint": "eslint .",
     "preview": "vite preview"
   },

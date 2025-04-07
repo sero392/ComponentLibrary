@@ -4,4 +4,4 @@ import "./Components/Button/Button.css";
 import Button from './Components/Button';
 
 
-export default Button;
+export  { Button };
