@@ -1,39 +1,4 @@
-/* Button Component Styles */
-.ms-button{
-    cursor: pointer;
-    border-width: 0;
-}
-
-
-/* CSS */
-.button-9 {
-  appearance: button;
-  backface-visibility: hidden;
-  background-color: #405cf5;
-  border-radius: 6px;
-  border-width: 0;
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
-  font-size: 100%;
-  height: 44px;
-  line-height: 1.15;
-  margin: 12px 0 0;
-  outline: none;
-  overflow: hidden;
-  padding: 0 25px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transform: translateZ(0);
-  transition: all .2s,box-shadow .08s ease-in;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
-}
+ 
 
 /* Button Color */
 .ms-button[data-bg-color="primary"] {
@@ -61,7 +26,6 @@
     --btn-text-color: var(--ms-white-color);
 }
 
-
 .ms-button[data-text-color="black"] {
     --btn-text-color: var(--ms-black-color);
 }
@@ -77,11 +41,54 @@
     --btn-padding: 15px 30px;
 }
 
+/* Radius Styles */
+.ms-button[data-radius="small"] {
+    --btn-radius: 5px;
+}
+.ms-button[data-radius="medium"] {
+    --btn-radius: 10px;
+}
+.ms-button[data-radius="large"] {
+    --btn-radius: 15px;
+}
+
+.ms-button[data-radius="none"] {
+    --btn-radius: 0px;
+}
+
+
+/* FontSize Styles */
+.ms-button[data-font-size="small"] {
+    --btn-font-size: 11px;
+}
+.ms-button[data-font-size="medium"] {
+    --btn-font-size: 16px;
+}
+.ms-button[data-font-size="large"] {
+    --btn-font-size: 21px;
+}
+
+
+
 
 
 .ms-button-container .ms-button {
+    cursor: pointer;
+    border-width: 0;
+    display: flex;
+
     padding: var(--btn-padding, 10px 20px);
     background-color: var(--btn-bg, var(--ms-primary-color));
     color: var(--btn-text-color, var(--ms-white-color));
-    border-color: var(--btn-border-color, var(--ms-primary-color));
+    border-radius: var(--btn-radius, 5px);
+    font-size: var(--btn-font-size, 16px);
 }
+
+.ms-button-container .ms-button:hover {
+   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ms-button-container .ms-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--btn-ring-color,rgba(0, 123, 255, 0.5));
+ }

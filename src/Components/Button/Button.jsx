@@ -13,9 +13,9 @@
 
 
 const predefinedColors = ["primary", "danger", "warning", "black", "white"];
-const predefinedPaddings = ["small", "medium", "large"];
+const predefinedClass = ["small", "medium", "large","none"];
 
-export default function Button({ bgColor, borderColor, children, textColor,paddingSize }) {
+export default function Button({ bgColor,  children, textColor,paddingSize,rounded,ringColor, fontSize }) {
     let style = {};
 
     const isPredefinedForBackGround = predefinedColors.includes(bgColor);
@@ -24,11 +24,16 @@ export default function Button({ bgColor, borderColor, children, textColor,paddi
     const isPredefinedForText = predefinedColors.includes(textColor);
     const textStyle = isPredefinedForText ? {} : { '--btn-text-color': textColor };
 
-    const isPredefinedForPadding = predefinedPaddings.includes(paddingSize);
+    
+    const isPredefinedForFontSize = predefinedClass.includes(fontSize);
+    const fontSizeStyle = isPredefinedForFontSize ? {} : { '--btn-font-size': fontSize };
 
-    const borderStyle = { '--btn-border-color': borderColor }
+    const ringStyle = {'--btn-ring-color': ringColor };
 
-    style = { ...bgStyle, ...borderStyle, ...textStyle };
+    const isPredefinedForPadding = predefinedClass.includes(paddingSize);
+    const isPredefinedForRadius  = predefinedClass.includes(rounded);
+
+    style = { ...bgStyle,  ...textStyle, ...ringStyle,...fontSizeStyle };
 
 
     return (
@@ -38,6 +43,8 @@ export default function Button({ bgColor, borderColor, children, textColor,paddi
                 className='ms-button'
                 data-bg-color={isPredefinedForBackGround ? bgColor : undefined}
                 data-padding={isPredefinedForPadding ? paddingSize : undefined}
+                data-radius={isPredefinedForRadius ? rounded : undefined}
+                data-font-size={isPredefinedForFontSize ? fontSize : undefined}
                 data-text-color={isPredefinedForText ? textColor : undefined}>
                 {children}
             </button>
