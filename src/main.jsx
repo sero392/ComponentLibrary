@@ -9,7 +9,7 @@ const App = () => (
   <div>
     <h1>Test Sayfası</h1>
     <Button
-      iconButton={false}
+      iconButton={true}
       paddingSize="small"
       fontSize="11px"
       rounded="none"

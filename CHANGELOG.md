@@ -10,3 +10,8 @@
 ## [1.1.2] - 2025-04-07
 ### Eklendi
 - CHANGELOG.md dosyası eklendi
+
+
+## [1.1.3] - 2025-04-08
+### Eklendi
+- Button'a ikon button özelliği eklendi. (iconButton)

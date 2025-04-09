@@ -1,15 +1,4 @@
-// import './Button.css'
 
-// export default function Button({ bgColor}) {
-//     return (
-//         <div className='ms-button-container'>
-//             <button className='ms-button'
-//                 style={{ "--btn-bg": bgColor }}>
-//                 deneme
-//             </button>
-//         </div>
-//     )
-// }
 
 
 const predefinedColors = ["primary", "danger", "warning", "black", "white"];
