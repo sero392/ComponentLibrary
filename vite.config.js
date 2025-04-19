@@ -6,17 +6,19 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"), 
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "MsComponentLibrary",
       fileName: (format) => `ms-component-library.${format}.js`,
       formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"], // Gereksiz bağımlılıkları kaldırdık
+      //https://stackoverflow.com/questions/66194269/typeerror-cannot-read-propertyreactcurrentdispatcherof-undefined
+      external: ["react", "react-dom", "react/jsx-runtime"], // Gereksiz bağımlılıkları kaldırdık
       output: {
         globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
+          'react-dom': 'ReactDom',
+          'react': 'React',
+          'react/jsx-runtime': 'ReactJsxRuntime',
         },
       },
     },

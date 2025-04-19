@@ -28,9 +28,9 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "@eslint/js": "^9.21.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.0",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
@@ -38,9 +38,9 @@
     "typescript": "^5.8.3",
     "vite": "^6.2.0"
   },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "author": "Serhan Çelik",
   "license": "MIT"
