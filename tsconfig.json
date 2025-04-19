@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "jsx": "react-jsx",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "declaration": true,
+      "declarationDir": "./dist",
+      "outDir": "./dist",
+      //NodeJs Modül Çözümleme Tekniğini Kullanır.
+      //Bu Sayede ViteConfig dosyasında node pakedine erişiyoruz.
+       "moduleResolution": "node"
+    },
+    "include": ["src","vite.config.js"],
+    "exclude": ["node_modules", "dist"]
+  }

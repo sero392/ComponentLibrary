@@ -1,7 +1,5 @@
 import './Root/index.css';
 
 import "./Components/Button/Button.css";
-import Button from './Components/Button';
+export { default as Button } from './Components/Button/Index';
 
-
-export  { Button };

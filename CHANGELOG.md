@@ -15,3 +15,10 @@
 ## [1.1.3] - 2025-04-08
 ### Eklendi
 - Button'a ikon button özelliği eklendi. (iconButton)
+
+## [1.1.4] - 2025-04-17
+### Bug Fix
+
+## [1.2.0] - 2025-04-17
+### Eklendi
+- Proje TypeScript'e geçirildi. 
