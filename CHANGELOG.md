@@ -22,3 +22,8 @@
 ## [1.2.0] - 2025-04-17
 ### Eklendi
 - Proje TypeScript'e geçirildi. 
+
+
+## [1.2.5] - 2025-04-17
+###  Bug Fix
+- React19 ta çalışmaya engel olan bir hata giderildi.

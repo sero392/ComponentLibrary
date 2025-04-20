@@ -3,22 +3,29 @@ import ReactDOM from "react-dom/client";
 
 import "./Root/index.css";
 import "./Components/Button/Button.css";
+import "./Components/SelectBox/SelectBox.css";
 import Button from "./Components/Button";
+import SelectBox from "./Components/SelectBox";
 
 const App = () => (
   <div>
     <h1>Test Sayfası</h1>
-    <Button
-      iconButton={true}
-      paddingSize="small"
-      fontSize="11px"
-      rounded="none"
-    >
-      <svg class="w-6 h-6 text-gray-800 dark:text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m0-14 4 4m-4-4-4 4" />
-      </svg>
+    <div>
+      <Button onClick={() => backToPage()} rounded="small" ringColor="#000" fontSize="11px" paddingSize="small" bgColor="secondary" >
+        Geri Dön
+      </Button>
+    </div>
 
-    </Button>
+    <div style={{marginTop:10}}>
+      <Button onClick={() => backToPage()} rounded="large" fontSize="11px" paddingSize="small" bgColor="success" >
+        Onayla
+      </Button>
+    </div>
+
+    <div style={{marginTop:10}}>
+      <SelectBox>
+      </SelectBox>
+    </div>
   </div>
 );
 

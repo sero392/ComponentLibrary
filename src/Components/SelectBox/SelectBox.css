@@ -1,0 +1,30 @@
+.ms-selectbox-container {
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    font-family: sans-serif;
+    font-size: 11px;
+    /*Şimdilik sabit verdim*/
+}
+
+.ms-selectbox-container .ms-selectbox-trigger {
+    cursor: pointer;
+    padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #cbcbcb;
+
+}
+
+.ms-selectbox-container > .ms-selectbox-items {
+    visibility: hidden;
+    height: 0px;
+    transition: all ease-in-out .1s;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ms-selectbox-container .ms-selectbox-items .ms-selectbox-item {
+    padding: 3px 10px;
+}

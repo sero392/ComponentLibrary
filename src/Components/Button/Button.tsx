@@ -16,7 +16,7 @@ type ButtonProps = {
   iconButton?: boolean;
 };
 
-const predefinedColors = ["primary", "danger", "warning", "black", "white"];
+const predefinedColors = ["primary", "secondary", "danger", "warning","success", "black", "white"];
 const predefinedClass = ["small", "medium", "large", "none"];
 
 

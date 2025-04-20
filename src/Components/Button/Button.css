@@ -7,6 +7,12 @@
 .ms-button[data-bg-color="danger"] {
     --btn-bg: var(--ms-danger-color)
 }
+.ms-button[data-bg-color="success"] {
+    --btn-bg: var(--ms-success-color)
+}
+.ms-button[data-bg-color="secondary"] {
+    --btn-bg: var(--ms-secondary-color)
+}
 .ms-button[data-bg-color="warning"] {
     --btn-bg: var(--ms-warning-color);
 }
