@@ -28,3 +28,6 @@
 .ms-selectbox-container .ms-selectbox-items .ms-selectbox-item {
     padding: 3px 10px;
 }
+.ms-selectbox-container .ms-selectbox-items .ms-selectbox-item:hover {
+    background-color: #cbcbcb;
+}

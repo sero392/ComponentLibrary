@@ -1,13 +1,28 @@
 import React, { useCallback, useEffect, useState } from "react";
 import icon from './arrowdown.svg';
+import TextValueViewModel from "./TextValueViewModel";
 
-const SelectBox: React.FC = () => {
+// Props için bir type tanımlıyoruz
+type SelectProps = {
+  values?: Array<TextValueViewModel>;
+  onChange: Function;
+};
+
+const SelectBox: React.FC<SelectProps> = ({values,onChange}) => {
     const [showList, setShowList] = useState<Boolean>(false);
     const [style, setStyle] = useState<React.CSSProperties>({})
+    const [selectedItem,setSelectedItem] = useState(new TextValueViewModel('',0));
 
     //ShowList Değerini Günceller.
     const clickTrigger = () => {
         setShowList(!showList);
+    }
+
+    //Elemana tıklama olayı
+    const clickItem = (itemValue:TextValueViewModel)=> {
+        clickTrigger();
+        setSelectedItem(itemValue);
+        onChange(itemValue);
     }
 
     //Seçim Kutusunun Açılıp Kapanma Olayını Sağlar.
@@ -32,13 +47,13 @@ const SelectBox: React.FC = () => {
 
     useEffect(() => {
         toggleSelectBox();
-    }, [toggleSelectBox])
+    }, [showList])
     return (
         <div className="ms-selectbox-container">
             <div tabIndex={0} onClick={() => clickTrigger()} className="ms-selectbox-trigger">
 
                 <div className="selectbox-trigger-text">
-                    Lütfen Seçiniz...
+                    {selectedItem?.Text}
                 </div>
                 <div className="selectbox-trigger-image">
                     <img src={icon} width={10} alt="arrowdown" />
@@ -46,19 +61,15 @@ const SelectBox: React.FC = () => {
                 </div>
             </div>
             <div id="SelectBoxItems" className="ms-selectbox-items" style={style}>
-                <div className="ms-selectbox-item">
+            {
+                values?.map((m) => (
+                    <div className="ms-selectbox-item" onClick={() => clickItem(m)}>
                     <span className="ms-selectbox-item-text">
-                        Deneme 1
-
+                        {m.Text}
                     </span>
                 </div>
-
-
-                <div className="ms-selectbox-item">
-                    <span className="ms-selectbox-item-text">
-                        Deneme 1
-                    </span>
-                </div>
+                ))
+            }
             </div>
         </div>
     )

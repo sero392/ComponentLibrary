@@ -7,24 +7,41 @@ import "./Components/SelectBox/SelectBox.css";
 import Button from "./Components/Button";
 import SelectBox from "./Components/SelectBox";
 
+const changeSelect = (item) => {
+  console.log(item);
+};
+
 const App = () => (
   <div>
     <h1>Test Sayfası</h1>
     <div>
-      <Button onClick={() => backToPage()} rounded="small" ringColor="#000" fontSize="11px" paddingSize="small" bgColor="secondary" >
+      <Button
+        rounded="small"
+        ringColor="#000"
+        fontSize="11px"
+        paddingSize="small"
+        bgColor="secondary"
+      >
         Geri Dön
       </Button>
     </div>
 
-    <div style={{marginTop:10}}>
-      <Button onClick={() => backToPage()} rounded="large" fontSize="11px" paddingSize="small" bgColor="success" >
+    <div style={{ marginTop: 10 }}>
+      <Button
+        rounded="large"
+        fontSize="11px"
+        paddingSize="small"
+        bgColor="success"
+      >
         Onayla
       </Button>
     </div>
 
-    <div style={{marginTop:10}}>
-      <SelectBox>
-      </SelectBox>
+    <div style={{ marginTop: 10 }}>
+      <SelectBox
+        values={[{ Text: "Deneme", Value: 0 }]}
+        onChange={(item) => changeSelect(item)}
+      ></SelectBox>
     </div>
   </div>
 );
