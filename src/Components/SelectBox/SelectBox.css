@@ -1,10 +1,22 @@
+/* Padding Styles */
+.ms-selectbox-container[data-rounded="small"] {
+    --select-rounded:1px;
+}
+.ms-selectbox-container[data-rounded="medium"] {
+    --select-rounded: 3px;
+}
+.ms-selectbox-container[data-rounded="large"] {
+    --select-rounded: 5px;
+}
+
+
+
 .ms-selectbox-container {
-    border-radius: 3px;
+    border-radius: var(--select-rounded,3px);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     width: 150px;
     font-family: sans-serif;
     font-size: 11px;
-    /*Şimdilik sabit verdim*/
 }
 
 .ms-selectbox-container .ms-selectbox-trigger {
@@ -12,7 +24,6 @@
     padding: 3px 5px;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #cbcbcb;
 
 }
 

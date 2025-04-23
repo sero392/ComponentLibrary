@@ -39,7 +39,14 @@ const App = () => (
 
     <div style={{ marginTop: 10 }}>
       <SelectBox
-        values={[{ Text: "Deneme", Value: 0 }]}
+        rounded="small"
+        values={[
+          { Text: "Elma", Value: 1 },
+          {
+            Text: 'Limon',
+            Value: 2,
+          }
+        ]}
         onChange={(item) => changeSelect(item)}
       ></SelectBox>
     </div>
