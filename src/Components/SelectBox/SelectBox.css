@@ -1,4 +1,7 @@
-/* Padding Styles */
+/* Radius Styles */
+.ms-selectbox-container[data-rounded="none"] {
+    --select-rounded:0px;
+}
 .ms-selectbox-container[data-rounded="small"] {
     --select-rounded:1px;
 }
@@ -8,26 +11,92 @@
 .ms-selectbox-container[data-rounded="large"] {
     --select-rounded: 5px;
 }
+/* Padding Styles */
+.ms-selectbox-container[data-padding="small"] {
+    --select-padding:2px 3px;
+}
+.ms-selectbox-container[data-padding="medium"] {
+    --select-padding: 3px 5px;
+}
+.ms-selectbox-container[data-padding="large"] {
+    --select-padding: 5px 7px;
+}
+.ms-selectbox-container[data-padding="none"] {
+    --select-padding: 1px 2px;
+}
 
+/* Width Styles */
+.ms-selectbox-container[data-width="full"] {
+    --select-width: 100%;
+}
+
+/* Shadow Styles */
+.ms-selectbox-container[data-shadow="none"] {
+    --select-shadow-color: transparent;
+    border: 1px solid var(--ms-border-color);
+}
+.ms-selectbox-container[data-shadow="small"] {
+    --select-shadow-color: rgba(0,0,0,.1);
+}
+.ms-selectbox-container[data-shadow="medium"] {
+    --select-shadow-color: rgba(0,0,0,.2);
+}
+.ms-selectbox-container[data-shadow="large"] {
+    --select-shadow-color: rgba(0,0,0,.3);
+}
+.ms-selectbox-container[data-shadow="xlarge"] {
+    --select-shadow-color: rgba(0,0,0,.4);
+}
+
+/* ItemsBackground Color */
+.ms-selectbox-container[data-items-background="white"] .ms-selectbox-items{
+    --items-background-color: var(--ms-white-color);
+}
+.ms-selectbox-container[data-items-background="black"] .ms-selectbox-items{
+    --items-background-color: var(--ms-black-color);
+}
+.ms-selectbox-container[data-items-background="primary"] .ms-selectbox-items{
+    --items-background-color: var(--ms-primary-color);
+}
+.ms-selectbox-container[data-items-background="secondary"] .ms-selectbox-items{
+    --items-background-color: var(--ms-secondary-color);
+}
+.ms-selectbox-container[data-items-background="success"] .ms-selectbox-items{
+    --items-background-color: var(--ms-success-color);
+}
+.ms-selectbox-container[data-items-background="warning"] .ms-selectbox-items{
+    --items-background-color: var(--ms-warning-color);
+}
+.ms-selectbox-container[data-items-background="danger"] .ms-selectbox-items{
+    --items-background-color: var(--ms-danger-color);
+}
 
 
 .ms-selectbox-container {
     border-radius: var(--select-rounded,3px);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    width: 150px;
-    font-family: sans-serif;
+    box-shadow: 1px 1px 5px var(--select-shadow-color,rgba(0,0,0,.2));
+    color: var(--ms-secondary-color);
+    width: var(--select-width,150px);
+    font-family: 'Verdana';
     font-size: 11px;
 }
+/* .ms-selectbox-container:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ms-ring-color)
+} 
+*/
+   
 
 .ms-selectbox-container .ms-selectbox-trigger {
     cursor: pointer;
-    padding: 3px 5px;
+    padding: var(--select-padding,3px 5px);
     display: flex;
     justify-content: space-between;
 
 }
 
 .ms-selectbox-container > .ms-selectbox-items {
+    background-color: var(--items-background-color,var(--ms-white-color));
     visibility: hidden;
     height: 0px;
     transition: all ease-in-out .1s;
@@ -40,5 +109,5 @@
     padding: 3px 10px;
 }
 .ms-selectbox-container .ms-selectbox-items .ms-selectbox-item:hover {
-    background-color: #cbcbcb;
+    background-color: #f3f3f3;
 }

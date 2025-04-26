@@ -8,19 +8,25 @@ type SelectProps = {
     onChange: Function,
     triggerOnMount: Boolean,
     placeHolder: String,
-    rounded:string,
+    rounded: string,
+    padding: string,
+    width?: string,
+    boxShadow: string,
+    itemsBackgroundColor: string,
 };
-const predefinedClass = ["small", "medium", "large", "none"];
+const predefinedClass = ["small", "medium", "large", "xlarge", "none", "full", "primary", "secondary", "success", "warning", "danger"];
 
-const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewModel>, onChange, triggerOnMount, placeHolder,  rounded }) => {
+const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewModel>, onChange, triggerOnMount, placeHolder, rounded, padding, width, boxShadow,itemsBackgroundColor }) => {
 
     if (values?.length === 0) {
         return;
     }
 
+    let selectBoxContainerStlye: React.CSSProperties = {};
+    let selectBoxItemsStlye: React.CSSProperties = {};
     //Seçim Kutusunun Açılıp Kapanma Durumu
     const [showList, setShowList] = useState<Boolean>(false);
-    const [style, setStyle] = useState<React.CSSProperties>({})
+    const [style, setStyle] = useState<React.CSSProperties>({});
     //Seçilen elemanı tutan durum
     const [selectedItem, setSelectedItem] = useState(new TextValueViewModel('', 0));
 
@@ -61,7 +67,7 @@ const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewMode
     }, [showList]);
 
     useEffect(() => {
-        const emptyValue = new TextValueViewModel("Lütfen Bir Değer Seçiniz...", 0);
+        const emptyValue = new TextValueViewModel(placeHolder || "Lütfen Bir Değer Seçiniz...", 0);
         if (triggerOnMount) {
             setSelectedItem(values[0]);
             onChange(values[0]);
@@ -73,11 +79,26 @@ const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewMode
 
 
     const isPredefinedForRadius = predefinedClass.includes(rounded || "");
+    const isPredefinedForPadding = predefinedClass.includes(padding || "");
+    const isPredefinedForWidth = predefinedClass.includes(width || "");
+    const isPredefinedForShadow = predefinedClass.includes(boxShadow || "");
+    const isPredefinedForItemsBackground = predefinedClass.includes(itemsBackgroundColor || "");
+    const widthStyle = isPredefinedForWidth ? {} : { '--select-width': width };
+    const itemsBgStyle = isPredefinedForItemsBackground ? {} : { '--items-background-color': itemsBackgroundColor };
+
+
+    selectBoxContainerStlye = { ...widthStyle };
+    selectBoxItemsStlye = { ...itemsBgStyle,...style };
 
     return (
-        <div 
-        data-rounded={isPredefinedForRadius ? rounded : undefined}
-        className="ms-selectbox-container">
+        <div
+            data-rounded={isPredefinedForRadius ? rounded : undefined}
+            data-padding={isPredefinedForPadding ? padding : undefined}
+            data-width={isPredefinedForPadding ? width : undefined}
+            data-shadow={isPredefinedForShadow ? boxShadow : undefined}
+            data-items-background={isPredefinedForItemsBackground ? itemsBackgroundColor : undefined}
+            style={selectBoxContainerStlye}
+            className="ms-selectbox-container">
             <div tabIndex={0} onBlur={() => clickTrigger(false)} onClick={() => clickTrigger(!showList)} className="ms-selectbox-trigger">
                 <div className="selectbox-trigger-text">
                     {selectedItem && selectedItem?.Text}
@@ -87,7 +108,7 @@ const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewMode
 
                 </div>
             </div>
-            <div id="SelectBoxItems" className="ms-selectbox-items" style={style}>
+            <div id="SelectBoxItems" className="ms-selectbox-items" style={selectBoxItemsStlye}>
                 {
                     values?.map((m) => (
                         <div key={m.Value} className="ms-selectbox-item" onClick={() => clickItem(m)}>

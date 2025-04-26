@@ -37,9 +37,15 @@ const App = () => (
       </Button>
     </div>
 
-    <div style={{ marginTop: 10 }}>
+    <div style={{ marginTop: 10, width: 200 }}>
       <SelectBox
-        rounded="small"
+      itemsBackgroundColor="warning"
+        boxShadow="large"
+        rounded="large"
+        padding="large"
+        triggerOnMount={true}
+        width="full"
+        placeHolder="Lütfen Meyve Seçiniz!"
         values={[
           { Text: "Elma", Value: 1 },
           {
