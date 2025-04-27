@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import * as React from 'react'
 import icon from './arrowdown.svg';
 import TextValueViewModel from "./TextValueViewModel";
 
@@ -16,19 +16,17 @@ type SelectProps = {
 };
 const predefinedClass = ["small", "medium", "large", "xlarge", "none", "full", "primary", "secondary", "success", "warning", "danger"];
 
-const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewModel>, onChange, triggerOnMount, placeHolder, rounded, padding, width, boxShadow,itemsBackgroundColor }) => {
+const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewModel>, onChange, triggerOnMount, placeHolder, rounded, padding, width, boxShadow, itemsBackgroundColor }) => {
 
-    if (values?.length === 0) {
-        return;
-    }
+    //Seçim Kutusunun Açılıp Kapanma Durumu
+    const [showList, setShowList] = React.useState<Boolean>(false);
+    const [style, setStyle] = React.useState<React.CSSProperties>({});
+    //Seçilen elemanı tutan durum
+    const [selectedItem, setSelectedItem] = React.useState(new TextValueViewModel('', 0));
 
     let selectBoxContainerStlye: React.CSSProperties = {};
     let selectBoxItemsStlye: React.CSSProperties = {};
-    //Seçim Kutusunun Açılıp Kapanma Durumu
-    const [showList, setShowList] = useState<Boolean>(false);
-    const [style, setStyle] = useState<React.CSSProperties>({});
-    //Seçilen elemanı tutan durum
-    const [selectedItem, setSelectedItem] = useState(new TextValueViewModel('', 0));
+
 
     //ShowList Değerini Günceller.
     const clickTrigger = (state: boolean) => {
@@ -43,7 +41,7 @@ const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewMode
     }
 
     //Seçim Kutusunun Açılıp Kapanma Olayını Sağlar.
-    const toggleSelectBox = useCallback(() => {
+    const toggleSelectBox = React.useCallback(() => {
         const dynamicHeight = (document.getElementById('SelectBoxItems')?.childNodes?.length || 0) * 25;
         if (showList) {
 
@@ -62,11 +60,11 @@ const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewMode
     }, [showList]);
 
 
-    useEffect(() => {
+    React.useEffect(() => {
         toggleSelectBox();
     }, [showList]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const emptyValue = new TextValueViewModel(placeHolder || "Lütfen Bir Değer Seçiniz...", 0);
         if (triggerOnMount) {
             setSelectedItem(values[0]);
@@ -88,7 +86,7 @@ const SelectBox: React.FC<SelectProps> = ({ values = new Array<TextValueViewMode
 
 
     selectBoxContainerStlye = { ...widthStyle };
-    selectBoxItemsStlye = { ...itemsBgStyle,...style };
+    selectBoxItemsStlye = { ...itemsBgStyle, ...style };
 
     return (
         <div
